@@ -1,0 +1,37 @@
+<nav class="navbar navbar-expand-lg">
+    <div class="navbar-brand" id="logo"><%= link_to 'JOURNIES', root_path %></div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapseablenavbar" aria-controls="collapseablenavbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon d-flex align-items-center justify-content-center">
+        <i class="fas fa-bars"></i>
+      </span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="collapseablenavbar">
+      <ul class="navbar-nav">
+        <li class="nav-item p-1">
+          <a class="nav-link" href="#">Home</a>
+          <div class="underline"></div>
+        </li>
+        <li class="nav-item p-1">
+          <a class="nav-link" href="#">Dashboard</a>
+          <div class="underline"></div>
+        </li>            
+        <li class="nav-item p-1">
+          <a class="nav-link" href="#">Features</a>
+          <div class="underline"></div>
+        </li>
+        <li class="nav-item p-1 dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fas fa-user"></i> Nicole Sano
+          </a>
+          <div class="underline"></div>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" href="#">Account</a>
+              <a class="dropdown-item" href="#">Settings</a>
+              <a class="dropdown-item" href="#">Log out</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+</nav>
+
+<div class="navbar-linear-gradient"></div>

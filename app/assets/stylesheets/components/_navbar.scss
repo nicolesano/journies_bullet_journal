@@ -1,0 +1,65 @@
+.navbar-brand a {
+  text-decoration: none;
+  color: rgb(252, 158, 95);
+  font-family: 'Overlock', cursive;    ;
+  font-size: 24px;
+  letter-spacing: 0.05em;
+  &:hover {
+    color: rgb(252, 158, 95);
+    }
+}
+
+.nav-link {
+  color: $grey;
+  font-size: 14px;
+  &:hover {
+    color: $maize;
+    }
+}
+
+nav ul li .underline {
+  height: 3px;
+  width: 0%;
+  background-color: transparent;
+  transition: width 0.2s, background-color 0.5s;
+	margin: 0 auto;
+}
+
+nav ul li:hover .underline {
+  background-color: $maize;
+  width: 100%;
+}
+
+nav ul li:active a, nav ul li:active .underline {
+  transition: none;
+  color: $maize;
+}
+
+.dropdown-menu {
+  background-color: $white;
+  padding: 2px;
+  min-width: 8rem;
+  a {
+    color: $grey;
+    font-size: 14px;
+    &:hover {
+      background-color: $white;
+      color: $maize;
+      }
+  }
+}
+
+.navbar-toggler {
+    border: 2px solid $maize;
+    border-radius: 8px;
+}
+  
+.fa-bars {
+  color: $maize;
+}
+
+.navbar-linear-gradient {
+  background: linear-gradient(90.82deg, rgba(244, 236, 25, 0.75) -1.39%, rgba(245, 39, 88, 0.75) 99.26%);
+  height: 1vh;
+  width: 100%;
+}

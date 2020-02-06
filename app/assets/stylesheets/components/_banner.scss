@@ -1,0 +1,21 @@
+.banner {
+    background-image: linear-gradient(
+        rgba(250, 250, 250, 0.4),
+        rgba(250, 250, 250, 0.4)),
+        url("Orange Oslo.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    h1, h3 {
+        color: $white;
+    }
+    h1 {
+        padding-top: 14%;
+        padding-bottom: 4%;
+        font-size: 6vh;
+    }
+    h3 {
+        font-size: 4vh;
+    }
+}

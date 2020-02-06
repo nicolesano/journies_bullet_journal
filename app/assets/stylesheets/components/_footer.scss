@@ -1,0 +1,17 @@
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.3);
+  width: 100%;
+  padding: 8px 16px;
+  i, .copyright {
+      color: $white;
+  }
+  .copyright {
+      font-size: 18px;
+  }
+  i {
+      font-size: 22px;
+  }
+}
