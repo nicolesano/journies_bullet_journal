@@ -4,12 +4,12 @@
 
 .navbar-brand a {
   text-decoration: none;
-  color: $light-orange;
+  color: $lavendar;
   font-family: 'Overlock', cursive;    ;
   font-size: 24px;
   letter-spacing: 0.05em;
   &:hover {
-    color: $light-orange;
+    color: $lavendar;
   }
 }
 
@@ -17,7 +17,7 @@
   color: $grey;
   font-size: 14px;
   &:hover {
-    color: $maize;
+    color: $blue-grey;
   }
 }
 
@@ -30,13 +30,13 @@ nav ul li .underline {
 }
 
 nav ul li:hover .underline {
-  background-color: $maize;
+  background-color: $blue-grey;
   width: 100%;
 }
 
 nav ul li:active a, nav ul li:active .underline {
   transition: none;
-  color: $maize;
+  color: $blue-grey;
 }
 
 .dropdown-menu {
@@ -48,22 +48,22 @@ nav ul li:active a, nav ul li:active .underline {
     font-size: 14px;
     &:hover {
       background-color: $white;
-      color: $maize;
+      color: $blue-grey;
       }
   }
 }
 
 .navbar-toggler {
-    border: 2px solid $maize;
+    border: 2px solid $blue-grey;
     border-radius: 8px;
 }
   
 .fa-bars {
-  color: $maize;
+  color: $blue-grey;
 }
 
 .navbar-linear-gradient {
-  background: linear-gradient(90.82deg, rgba(244, 236, 25, 0.75) -1.39%, $bright-pink 99.26%);
+  background: linear-gradient(90.82deg, $lavendar -1.39%, $blue-grey 99.26%);
   height: 1vh;
   width: 100%;
 }

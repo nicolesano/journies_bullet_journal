@@ -1,8 +1,8 @@
 .banner {
     background-image: linear-gradient(
-        rgba(250, 250, 250, 0.4),
-        rgba(250, 250, 250, 0.4)),
-        url("Orange Oslo.jpg");
+        rgba(0, 0, 0, 0.15),
+        rgba(0, 0, 0, 0.15)),
+        url("Arches hallway.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -11,7 +11,7 @@
         color: $white;
     }
     h1 {
-        padding-top: 14%;
+        padding-top: 18%;
         padding-bottom: 4%;
         font-size: 6vh;
     }

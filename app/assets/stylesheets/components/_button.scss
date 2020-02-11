@@ -5,16 +5,19 @@
   &:hover {
     color: $white;
   }
-  &.-maize {
-    background-color: $maize;
+  &.-blue-grey {
+    background-color: $blue-grey;
   }
-  &.-teal {
-    background-color: $light-teal;
+  &.-medium-purple {
+    background-color: $medium-purple;
+  }
+  &.-blue-grey {
+    background-color: $blue-grey;
   }
 }
 
 .btn-main {
-  background-color: $bright-pink;
+  background-color: $dark-purple;
   border-radius: 8px;
   color: $white;
   text-align: center;
@@ -30,7 +33,7 @@
     text-decoration: none;
     transform: translateY(-2px);
     box-shadow: 0 4px 4px $transparent-white;
-&:active {
+  &:active {
     transform: translateY(-4px);
     box-shadow: 0 4px 4px $transparent-white;    
     }
