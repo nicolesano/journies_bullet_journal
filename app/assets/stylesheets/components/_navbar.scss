@@ -4,12 +4,12 @@
 
 .navbar-brand a {
   text-decoration: none;
-  color: rgb(252, 158, 95);
+  color: $light-orange;
   font-family: 'Overlock', cursive;    ;
   font-size: 24px;
   letter-spacing: 0.05em;
   &:hover {
-    color: rgb(252, 158, 95);
+    color: $light-orange;
   }
 }
 
