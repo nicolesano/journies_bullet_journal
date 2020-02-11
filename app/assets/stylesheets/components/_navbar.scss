@@ -1,3 +1,7 @@
+.navbar {
+  background-color: $white;
+}
+
 .navbar-brand a {
   text-decoration: none;
   color: rgb(252, 158, 95);
@@ -6,7 +10,7 @@
   letter-spacing: 0.05em;
   &:hover {
     color: rgb(252, 158, 95);
-    }
+  }
 }
 
 .nav-link {
@@ -14,7 +18,7 @@
   font-size: 14px;
   &:hover {
     color: $maize;
-    }
+  }
 }
 
 nav ul li .underline {
@@ -59,7 +63,7 @@ nav ul li:active a, nav ul li:active .underline {
 }
 
 .navbar-linear-gradient {
-  background: linear-gradient(90.82deg, rgba(244, 236, 25, 0.75) -1.39%, rgba(245, 39, 88, 0.75) 99.26%);
+  background: linear-gradient(90.82deg, rgba(244, 236, 25, 0.75) -1.39%, $bright-pink 99.26%);
   height: 1vh;
   width: 100%;
 }

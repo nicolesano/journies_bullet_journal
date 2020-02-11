@@ -1,0 +1,12 @@
+<div class="container pt-4">
+
+  <h1 class="header">Write entry</h1>
+
+  <%= simple_form_for @entry do |f| %>
+    <%= f.input :title, label_html: { class: 'label-grey' }%>
+    <%= f.input :content, label: 'Entry text', label_html: { class: 'label-grey' }, placeholder: 'What\'s on your mind?' %>
+    <%= f.button :submit, label: 'Finish entry', class: 'btn-maize' %>
+  <% end %>
+
+  <%= link_to 'Back to dashboard', dashboard_path %>
+</div>

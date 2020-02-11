@@ -1,5 +1,5 @@
 .btn-main {
-  background-color: rgba(245, 39, 88, 0.75);
+  background-color: $bright-pink;
   border-radius: 8px;
   color: $white;
   text-align: center;
@@ -19,5 +19,15 @@
     transform: translateY(-4px);
     box-shadow: 0 4px 4px $transparent-white;    
     }
+  }
+}
+
+.btn-maize {
+  background-color: $maize;
+  color: $white;
+  border-radius: 8px;
+  text-align: center;
+  &:hover {
+    color: $white;
   }
 }
