@@ -1,2 +1,18 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<div class="container pt-4">
+  <h1 class="header">Sign up</h1>
+    <%= form_with(model: @user, local: true) do |f| %>
+      <%= f.label :name, class: 'label-grey' %>
+      <%= f.text_field :name, class: 'form-control' %>
+
+      <%= f.label :email, class: 'label-grey mt-3' %>
+      <%= f.email_field :email, class: 'form-control' %>
+
+      <%= f.label :password, class: 'label-grey mt-3'%>
+      <%= f.password_field :password, class: 'form-control' %>
+
+      <%= f.label :password_confirmation, "Confirm", class: 'label-grey mt-3' %>
+      <%= f.password_field :password_confirmation, class: 'form-control' %>
+
+      <%= f.submit "Create account", class: "btn -medium-purple mt-3" %>
+    <% end %>
+</div>

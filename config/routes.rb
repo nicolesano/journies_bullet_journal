@@ -3,6 +3,9 @@ Rails.application.routes.draw do
 
   get "dashboard", :to => "static_pages#dashboard"
 
-  get 'users/new'
+  get '/signup', to: 'users#new'
+  
+  resources :users
+  
   resources :entries
 end
