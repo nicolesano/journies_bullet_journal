@@ -26,5 +26,7 @@
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 
-!/tmp/pid/.keep
-!/tmp/sockets/.keep
+/tmp/pids/*
+!/tmp/pids
+!/tmp/pids/.keep
+!/tmp/pids/.server.pid
