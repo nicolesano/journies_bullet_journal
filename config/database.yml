@@ -78,8 +78,14 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
+
 production:
-  <<: *default
+  adapter: postgresql
+  encoding: unicode
+  # For details on connection pooling, see Rails configuration guide
+  # https://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   database: journies_bullet_journal_production
   username: journies_bullet_journal
   password: <%= ENV['JOURNIES_BULLET_JOURNAL_DATABASE_PASSWORD'] %>
+
