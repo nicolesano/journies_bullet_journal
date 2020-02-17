@@ -42,10 +42,11 @@ nav ul li:active a, nav ul li:active .underline {
 .dropdown-menu {
   background-color: $white;
   padding: 2px;
-  min-width: 8rem;
+  min-width: 6rem;
   a {
     color: $grey;
     font-size: 14px;
+    text-align: center;
     &:hover {
       background-color: $white;
       color: $blue-grey;

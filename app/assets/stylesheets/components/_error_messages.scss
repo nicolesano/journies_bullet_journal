@@ -1,3 +1,11 @@
+.number-of-errors {
+  color: $white;
+  background-color: $transparent-red;
+  border-radius: 4px;
+  padding: 2px 4px;
+  margin: 4px 0;
+}
+
 .failure {
   color: $transparent-red;
   ul {
@@ -5,12 +13,4 @@
     margin: 0 0 30px 0;
     list-style-type: none;
   }
-}
-
-.number-of-errors {
-  color: $white;
-  background-color: $transparent-red;
-  border-radius: 4px;
-  padding: 2px 4px;
-  margin: 4px 0;
 }

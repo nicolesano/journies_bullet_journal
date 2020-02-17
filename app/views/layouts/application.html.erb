@@ -17,8 +17,8 @@
     <%= render 'layouts/navbar' %>
 
     <% flash.each do |message_type, message| %>
-      <div class="container <%= message_type %> pt-4">
-        <div class="number-of-errors col-sm-4 p-2"><%= message %></div>
+      <div class="<%= message_type %> mt-4">
+        <div class="container p-2"><%= message %></div>
       </div>
     <% end %>
 
