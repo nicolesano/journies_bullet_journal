@@ -1,0 +1,7 @@
+.link {
+  color: $medium-blue;
+  font-weight: bold;
+  &:hover {
+    text-decoration: none;
+  }
+}

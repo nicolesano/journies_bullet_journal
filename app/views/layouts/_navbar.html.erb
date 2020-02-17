@@ -19,17 +19,26 @@
           <a class="nav-link" href="#">Features</a>
           <div class="underline"></div>
         </li>
-        <li class="nav-item p-1 dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <i class="fas fa-user"></i> Nicole Sano
-          </a>
-          <div class="underline"></div>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" href="#">Account</a>
-              <a class="dropdown-item" href="#">Settings</a>
-              <a class="dropdown-item" href="#">Log out</a>
-          </div>
-        </li>
+
+        <% if logged_in? %>
+          <li class="nav-item p-1 dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-user"></i> <%= current_user.name %>
+            </a>
+            <div class="underline"></div>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="#">Account</a>
+                <a class="dropdown-item" href="#">Settings</a>
+                <a class="dropdown-item" href="#">Log out</a>
+            </div>
+          </li>
+        <% else %>
+          <li class="nav-item p-1">
+            <%= link_to "Log in", login_path, class: "nav-link" %>
+            <div class="underline"></div>
+          </li>
+        <% end %>
+
       </ul>
     </div>
 </nav>

@@ -1,7 +1,7 @@
 <% if @user.errors.any? %>
-  <div id="error_explanation">
-    <div class="number-of-errors col-sm-4">
-      Oh no! There were <%= pluralize(@user.errors.count, "error") %>.
+  <div class="failure pb-2">
+    <div class="number-of-errors col-sm-4 p-2">
+      Oh no! Please check <%= pluralize(@user.errors.count, "error") %>.
     </div>
     <ul>
     <% @user.errors.full_messages.each_with_index do |msg, index| %>
