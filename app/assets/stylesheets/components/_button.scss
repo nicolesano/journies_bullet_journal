@@ -5,11 +5,14 @@
   &:hover {
     color: $white;
   }
-  &.-blue-grey {
-    background-color: $blue-grey;
+  &.-blue {
+    background-color: $blue;
   }
   &.-medium-blue {
     background-color: $medium-blue;
+  }
+  &.-blue-grey {
+    background-color: $blue-grey;
   }
 }
 

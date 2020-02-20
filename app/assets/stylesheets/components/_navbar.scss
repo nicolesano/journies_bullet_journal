@@ -17,7 +17,7 @@
   color: $grey;
   font-size: 14px;
   &:hover {
-    color: $blue-grey;
+    color: $blue;
   }
 }
 
@@ -30,13 +30,13 @@ nav ul li .underline {
 }
 
 nav ul li:hover .underline {
-  background-color: $blue-grey;
+  background-color: $blue;
   width: 100%;
 }
 
 nav ul li:active a, nav ul li:active .underline {
   transition: none;
-  color: $blue-grey;
+  color: $blue;
 }
 
 .dropdown-menu {
@@ -49,22 +49,22 @@ nav ul li:active a, nav ul li:active .underline {
     text-align: center;
     &:hover {
       background-color: $white;
-      color: $blue-grey;
+      color: $blue;
       }
   }
 }
 
 .navbar-toggler {
-    border: 2px solid $blue-grey;
+    border: 2px solid $blue;
     border-radius: 8px;
 }
   
 .fa-bars {
-  color: $blue-grey;
+  color: $blue;
 }
 
 .navbar-linear-gradient {
-  background: linear-gradient(90.82deg, $lavendar -1.39%, $blue-grey 99.26%);
+  background: linear-gradient(90.82deg, $lavendar -1.39%, $blue 99.26%);
   height: 1vh;
   width: 100%;
 }
