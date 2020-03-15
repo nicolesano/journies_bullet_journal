@@ -10,5 +10,8 @@ Rails.application.routes.draw do
   delete '/logout',  to: 'sessions#destroy'
 
   resources :users
-  resources :entries
+  resources :entries, except: [:index]
+  resources :tasks, except: [:index, :create]
+
+  post '/dashboard', to: 'tasks#create'
 end

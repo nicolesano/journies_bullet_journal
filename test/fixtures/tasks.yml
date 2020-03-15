@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  due_date: 2020-02-21 10:19:18
+  priority: MyString
+
+two:
+  name: MyString
+  due_date: 2020-02-21 10:19:18
+  priority: MyString

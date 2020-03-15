@@ -2,6 +2,30 @@
   <h1 class="header">Dashboard</h1>
 
   <section>
+
+    <table></table>
+
+  </section>
+
+  <section>
+
+    <%= form_with(model: @task, local: true) do |f| %>
+
+      <%= f.label :name, class: 'label-grey' %>
+      <%= f.text_field :name, class: 'form-control' %>
+
+      <%= f.label :due_date, class: 'label-grey mt-3' %>
+      <%= f.date_field :due_date, class: 'form-control' %>
+
+      <%= f.label :priority, class: 'label-grey mt-3' %>
+      <%= f.text_field :priority, class: 'form-control' %>
+
+      <%= f.submit "Create task", class: "btn -medium-blue mt-3 mt-3" %>
+    <% end %>
+  
+  </section>
+
+  <section>
     <div class="card -entry p-3">
       <h2 class="section-header">Entries</h2>
       <div class="d-flex flex-wrap justify-content-center">

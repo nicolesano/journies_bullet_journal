@@ -4,5 +4,6 @@ class StaticPagesController < ApplicationController
 
     def dashboard
         @entries = current_user.entries.all
+        @tasks = current_user.tasks.all
     end
 end
