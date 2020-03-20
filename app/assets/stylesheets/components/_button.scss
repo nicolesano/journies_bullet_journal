@@ -14,10 +14,13 @@
   &.-blue-grey {
     background-color: $blue-grey;
   }
+  &.-submit {
+    display: block;
+  }
 }
 
 .btn-main {
-  background-color: $dark-blue;
+  background-color: $orange;
   border-radius: 8px;
   color: $white;
   text-align: center;
@@ -37,5 +40,21 @@
     transform: translateY(-4px);
     box-shadow: 0 4px 4px $transparent-white;    
     }
+  }
+}
+
+.btn-plus {
+  background: $green;
+  color: $white;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 22px;
+  border: none;
+  display: block;
+  text-align: center;
+  line-height: 2.2;
+  &:hover {
+    color: $white;
   }
 }

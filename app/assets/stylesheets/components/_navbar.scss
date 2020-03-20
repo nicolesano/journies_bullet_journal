@@ -4,20 +4,19 @@
 
 .navbar-brand a {
   text-decoration: none;
-  color: $lavendar;
+  background: linear-gradient(to right, $purple 0%, $orange 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
   font-family: 'Overlock', cursive;    ;
   font-size: 24px;
   letter-spacing: 0.05em;
-  &:hover {
-    color: $lavendar;
-  }
 }
 
 .nav-link {
   color: $grey;
   font-size: 14px;
   &:hover {
-    color: $blue;
+    color: $purple-medium;
   }
 }
 
@@ -30,13 +29,13 @@ nav ul li .underline {
 }
 
 nav ul li:hover .underline {
-  background-color: $blue;
+  background-color: $purple-medium;
   width: 100%;
 }
 
 nav ul li:active a, nav ul li:active .underline {
   transition: none;
-  color: $blue;
+  color: $purple-medium;
 }
 
 .dropdown-menu {
@@ -49,22 +48,19 @@ nav ul li:active a, nav ul li:active .underline {
     text-align: center;
     &:hover {
       background-color: $white;
-      color: $blue;
+      color: $purple-medium;
       }
   }
 }
 
 .navbar-toggler {
-    border: 2px solid $blue;
-    border-radius: 8px;
+  border: 1.5px solid $purple-medium;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
 }
   
 .fa-bars {
-  color: $blue;
-}
-
-.navbar-linear-gradient {
-  background: linear-gradient(90.82deg, $lavendar -1.39%, $blue 99.26%);
-  height: 1vh;
-  width: 100%;
+  color: $purple-medium;
+  font-size: 16px;
 }

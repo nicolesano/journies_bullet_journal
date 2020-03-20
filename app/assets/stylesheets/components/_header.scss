@@ -1,8 +1,19 @@
 .header {
+  color: $purple-medium;
   font-size: 28px;
+  font-weight: 700;
   padding-bottom: 12px;
 }
 
 .section-header {
   font-size: 22px;
+  color: $orange;
+}
+
+.entry-header {
+  font-size: 18px;
+}
+
+.entry-date {
+  font-size: 14px;
 }

@@ -10,6 +10,7 @@ class TasksController < ApplicationController
 
   def create
     @task = current_user.tasks.new(task_params)
+    @task.status = false
     if @task.save
       redirect_to dashboard_path
     else
