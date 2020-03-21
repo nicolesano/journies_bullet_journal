@@ -17,3 +17,17 @@
 //= require popper
 //= require bootstrap-sprockets
 //= require_tree .
+
+var addTaskButton = document.getElementById("add-task-toggle");
+var taskForm = document.getElementById("task-form");
+
+var displayForm = function () {
+
+  if (taskForm.classList.contains("display")) {
+    taskForm.classList.remove("display");
+  } else {
+    taskForm.classList.add("display");
+  }
+};
+
+addTaskButton.addEventListener("click", displayForm);

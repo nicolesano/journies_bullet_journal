@@ -2,56 +2,69 @@
   <h1 class="header">Dashboard</h1>
 
   <section class="tasks">
+    <div class="card p-3 mb-4">
+      <h2 class="section-header">To dos</h2>
 
-    <% @tasks.each do |task| %>
-      <% if task.status == false %>
-        <div><%= task.name %></div>
-      <% end %>
-    <% end %>
+      <div class="px-3">
+        <% @tasks.each do |task| %>
+          <div class="d-flex justify-content-center">
+            <% if task.status == false %>
+              <div class="task-row">
+                <div><%= task.name %></div>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      
+        <div type="button" class="link" id="add-task-toggle">Add new todo</div>
 
-    <%= form_with(model: @task, local: true) do |f| %>
+        <div id="task-form" class="display">
+          <%= form_with(model: @task, local: true) do |f| %>
 
-      <%= f.label :name, class: 'label-grey' %>
-      <%= f.text_field :name, class: 'form-control' %>
+            <%= f.label :name, class: 'label-grey' %>
+            <%= f.text_field :name, class: 'form-control' %>
 
-    <div class="row">
-      <div class="col-sm-6">
-        <%= f.label :due_date, class: 'label-grey mt-3' %>
-        <%= f.date_field :due_date, class: 'form-control' %>
-      </div>
+            <div class="row">
+              <div class="col-sm-6">
+                <%= f.label :due_date, class: 'label-grey mt-3' %>
+                <%= f.date_field :due_date, class: 'form-control' %>
+              </div>
 
-      <div class="col-sm-6">
-        <%= f.label :priority, class: 'label-grey mt-3 mr-3' %>
-        <div>
-          <%= f.radio_button :priority, 'low'%> 
-          <%= f.label :priority, 'low', :value => 'low', class: 'mr-2 pt-2'  %>
-          <%= f.radio_button :priority, 'medium' %>
-          <%= f.label :priority, 'medium', :value => 'medium', class: 'mr-2 pt-2'  %>
-          <%= f.radio_button :priority, 'high' %>
-          <%= f.label :priority, 'high', :value => 'high', class: 'mr-2 pt-2' %>
+              <div class="col-sm-6">
+                <%= f.label :priority, class: 'label-grey mt-3 mr-3' %>
+                <div>
+                  <%= f.radio_button :priority, 'low'%> 
+                  <%= f.label :priority, 'low', :value => 'low', class: 'mr-2 pt-2'  %>
+                  <%= f.radio_button :priority, 'medium' %>
+                  <%= f.label :priority, 'medium', :value => 'medium', class: 'mr-2 pt-2'  %>
+                  <%= f.radio_button :priority, 'high' %>
+                  <%= f.label :priority, 'high', :value => 'high', class: 'mr-2 pt-2' %>
+                </div>
+              </div>
+
+              <%= f.button class: 'btn-plus mt-2' do %>
+                <i class="fas fa-plus"></i>
+              <% end %>
+
+            </div>
+          <% end %>
         </div>
+
       </div>
     </div>
-
-      <%= f.button class: 'btn-plus ml-4' do %>
-        <i class="fas fa-plus"></i>
-      <% end %>
-
-    <% end %>
-  
   </section>
 
   <section class="entries">
-    <div class="card p-3">
+    <div class="card p-3 mb-4">
     <h2 class="section-header">Entries</h2>
-    <div class="px-4">
+    <div class="px-3">
       <% @entries.last(3).reverse.each_with_index do |entry, index| %>
         <div class="row">
           <div class="col-sm-8 pb-4 pt-2">
             <div class="entry-header pb-1"><%= entry.title %></div>
             <div class="entry-date pb-2"><%= entry.created_at.strftime("%A, %B %d, %Y") %></div>
             <div><%= entry.content %></div>
-            <% if entry != @entries.last(4).first %>
+            <% if entry != @entries.last(3).first %>
               <div class="divider mt-4"></div>
             <% end %>
           </div>
