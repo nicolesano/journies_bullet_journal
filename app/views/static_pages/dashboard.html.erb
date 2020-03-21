@@ -2,17 +2,34 @@
   <h1 class="header">Dashboard</h1>
 
   <section class="tasks">
-    <div class="card p-3 mb-4">
+    <div class="card p-3 mb-4 half-width">
       <h2 class="section-header">To dos</h2>
 
       <div class="px-3">
         <% @tasks.each do |task| %>
-          <div class="d-flex justify-content-center">
-            <% if task.status == false %>
-              <div class="task-row">
-                <div><%= task.name %></div>
+          <div class="task-row">
+            <div class="d-flex align-items-center">
+              <div class="col-sm-2">
+                <% if task.status == false %>
+                  <div class="pr-2">◯</div>
+                <% else %>
+                  <div class="pr-2">◎</div>
+                <% end %>
               </div>
-            <% end %>
+              <div class="col-sm-8">
+                <div><%= task.name %></div>
+                <div class="due-date"><%= task.due_date.strftime("%B %-d") %></div>
+              </div>
+              <div class="col-sm-2">
+                <% if task.priority == "high" %>
+                  <i class="fas fa-lightbulb -red"></i>
+                <% elsif task.priority == "medium" %>
+                  <i class="fas fa-lightbulb -orange"></i>
+                <% else %>
+                  <i class="fas fa-lightbulb -green"></i>
+                <% end %>
+              </div>
+            </div>
           </div>
         <% end %>
       
@@ -21,8 +38,12 @@
         <div id="task-form" class="display">
           <%= form_with(model: @task, local: true) do |f| %>
 
-            <%= f.label :name, class: 'label-grey' %>
-            <%= f.text_field :name, class: 'form-control' %>
+            <div class="row">
+              <div class="col-sm-6">
+                <%= f.label :name, class: 'label-grey' %>
+                <%= f.text_field :name, class: 'form-control' %>
+              </div>
+            </div>
 
             <div class="row">
               <div class="col-sm-6">

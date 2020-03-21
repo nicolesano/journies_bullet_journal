@@ -1,0 +1,16 @@
+.fa-bars {
+  color: $purple-medium;
+  font-size: 20px;
+}
+
+.fa-lightbulb {
+  &.-red {
+    color: rgb(204, 67, 67);
+  }
+  &.-orange {
+    color: rgb(248, 176, 43);
+  }
+  &.-green {
+    color: rgb(97, 189, 97);
+  }
+}

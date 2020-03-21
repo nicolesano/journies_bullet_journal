@@ -13,3 +13,14 @@
   padding-left: 8px;
   margin-bottom: 4px;
 }
+
+.due-date {
+  font-size: 12px;
+  font-style: italic;
+}
+
+@media only screen and (min-width: 768px) {
+  .half-width {
+    width: 48%;
+  }
+}
