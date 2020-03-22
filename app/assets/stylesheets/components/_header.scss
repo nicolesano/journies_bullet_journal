@@ -1,13 +1,21 @@
 .header {
-  color: $purple-lavendar;
+  color: $purple-medium;
   font-size: 28px;
   font-weight: 700;
   padding-bottom: 12px;
 }
 
+.stats-header {
+  font-size: 20px;
+}
+
+.stat-header {
+  font-size: 18px;
+}
+
 .section-header {
   font-size: 22px;
-  color: $ocean-blue;
+  color: $medium-blue;
 }
 
 .entry-header {

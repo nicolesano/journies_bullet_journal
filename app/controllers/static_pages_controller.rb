@@ -15,14 +15,17 @@ class StaticPagesController < ApplicationController
     @entries.each do |entry|
       @entry_word_lengths << entry.content.split(' ').size
     end
-    @average_entry_word_length = @entry_word_lengths.reduce(:+) / @entry_word_lengths.size.round(0) 
+    @average_entry_word_length = @entry_word_lengths.reduce(:+) / @entry_word_lengths.size.round(0)
+
+    @entry_completion_hash = {}
+    @entry_completion_hash[:complete] = @percentage_of_days_with_entries
+    @entry_completion_hash[:incomplete] = 100 - @percentage_of_days_with_entries
 
     @tasks = current_user.tasks.all
     
     @total_completed_tasks = @tasks.select { |task| task.status == true }.count
     @todays_tasks_percentage_completed = (@tasks.select { |task| task.status == true && task.due_date == Date.today }.count / @tasks.select { |task| task.due_date == Date.today }.count.to_f * 100).round(0)
     @todays_number_of_remaining_tasks = @tasks.select { |task| task.status == false && task.due_date == Date.today }.count
-
 
     @task_completion_hash = {}
     @task_completion_hash[:complete] = @todays_tasks_percentage_completed

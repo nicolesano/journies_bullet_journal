@@ -2,31 +2,46 @@
   <h1 class="header">Dashboard</h1>
 
   <section>
-  
-    <div>Completed tasks: <%= @total_completed_tasks %></div>
-    <div>Tasks reminaing today: <%= @todays_number_of_remaining_tasks %></div>
+    <div class="card p-3 mb-4">
+      <h2 class="section-header pb-2">Statistics</h2>
+      <div class="flex">
+        <div class="col-sm-6 pb-4">
+          <h2 class="stats-header text-center">Tasks</h2>
+          <div class="d-flex justify-content-center">
+            <div class="pr-3"><%= @total_completed_tasks %> completed <%= "task".pluralize(@total_completed_tasks) %></div>
+            <div><%= @todays_number_of_remaining_tasks %> remaining <%= "task".pluralize(@todays_number_of_remaining_tasks) %></div>
+          </div>
+          <div class="stat-header text-center pt-4">Today's task completion</div>
+          <%= pie_chart @task_completion_hash, colors: ["rgba(98, 218, 160, 1)", "rgba(90, 205, 241, 1)"], height: "120px", suffix: "%", legend: "bottom" %>
+        </div>
 
-    <%= pie_chart @task_completion_hash, colors: ["rgba(90, 205, 241, 1)", "rgba(255, 82, 82, 0.95)"], height: "120px", suffix: "%", legend: "bottom" %>
-
-    <div>Days since first entry: <%= @total_days_since_first_entry %></div>
-    <div>Percentage of days with entries: <%= @percentage_of_days_with_entries %>%</div>
-    <div>Average entry word length: <%= @average_entry_word_length %> words</div>
+        <div class="col-sm-6">
+          <h2 class="stats-header text-center">Entries</h2>
+          <div class="d-flex justify-content-center">
+            <div class="pr-3"><%= @total_entries %> <%= "entries".pluralize(@total_entries) %></div>
+            <div><%= @average_entry_word_length %> average word length</div>
+          </div>
+          <div class="stat-header text-center pt-4">Days with entries</div>
+          <%= pie_chart @entry_completion_hash, colors: ["rgba(98, 218, 160, 1)", "rgba(90, 205, 241, 1)"], height: "120px", suffix: "%", legend: "bottom" %>
+        </div>
+      </div>
+    </div>
 
   </section>
 
   <section class="tasks">
     <div class="card p-3 mb-4 half-width">
-      <h2 class="section-header">To dos</h2>
+      <h2 class="section-header pb-2">To dos</h2>
 
       <div class="px-3">
         <% @tasks.each do |task| %>
           <div class="task-row">
             <div class="d-flex align-items-center">
-              <div class="col-sm-2">
+              <div class="col-sm-1 pr-4">
                 <% if task.status == false %>
-                  <div class="pr-2">◯</div>
+                  <i class="far fa-circle"></i>
                 <% else %>
-                  <div class="pr-2">◎</div>
+                  <i class="fas fa-circle"></i>
                 <% end %>
               </div>
               <div class="col-sm-8">
@@ -46,7 +61,7 @@
           </div>
         <% end %>
       
-        <div type="button" class="link" id="add-task-toggle">Add new todo</div>
+        <div type="button" class="link pt-2" id="add-task-toggle">Add new todo</div>
 
         <div id="task-form" class="display">
           <%= form_with(model: @task, local: true) do |f| %>
