@@ -1,6 +1,17 @@
 <div class="container pt-4">
   <h1 class="header">Dashboard</h1>
 
+  <section>
+    <div>Completed tasks: <%= @total_completed_tasks %></div>
+    <div>Percentage done today: <%= @todays_tasks_percentage_completed %>%</div>
+    <div>Tasks reminaing today: <%= @todays_number_of_remaining_tasks %></div>
+
+    <div>Days since first entry: <%= @total_days_since_first_entry %></div>
+    <div>Percentage of days with entries: <%= @percentage_of_days_with_entries %>%</div>
+    <div>Average entry word length: <%= @average_entry_word_length %> words</div>
+
+  </section>
+
   <section class="tasks">
     <div class="card p-3 mb-4 half-width">
       <h2 class="section-header">To dos</h2>
