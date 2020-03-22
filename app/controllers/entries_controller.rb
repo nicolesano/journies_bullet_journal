@@ -1,5 +1,5 @@
 class EntriesController < ApplicationController
-  before_action :set_entry, only: [:show]
+  before_action :set_entry, only: [:show, :edit, :update]
 
   def show
   end
@@ -15,6 +15,14 @@ class EntriesController < ApplicationController
     else
       render :new
     end
+  end
+
+  def edit
+  end
+
+  def update
+    @entry.update(entry_params)
+    redirect_to dashboard_path
   end
 
   private
