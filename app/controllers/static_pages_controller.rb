@@ -22,5 +22,10 @@ class StaticPagesController < ApplicationController
     @total_completed_tasks = @tasks.select { |task| task.status == true }.count
     @todays_tasks_percentage_completed = (@tasks.select { |task| task.status == true && task.due_date == Date.today }.count / @tasks.select { |task| task.due_date == Date.today }.count.to_f * 100).round(0)
     @todays_number_of_remaining_tasks = @tasks.select { |task| task.status == false && task.due_date == Date.today }.count
+
+
+    @task_completion_hash = {}
+    @task_completion_hash[:complete] = @todays_tasks_percentage_completed
+    @task_completion_hash[:incomplete] = 100 - @todays_tasks_percentage_completed
   end
 end

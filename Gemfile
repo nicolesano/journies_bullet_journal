@@ -39,3 +39,5 @@ gem 'jquery-rails'
 gem 'bootstrap', '~> 4.4.1'
 gem 'font-awesome-sass'
 gem 'simple_form'
+gem "chartkick"
+
