@@ -107,22 +107,24 @@
     <div class="card p-3 mb-4">
     <h2 class="section-header">Entries</h2>
     <div class="px-3">
-      <% @entries.last(3).reverse.each_with_index do |entry, index| %>
-        <div class="row">
-          <div class="col-sm-8 pb-4 pt-2">
-            <div class="entry-header pb-1"><%= entry.title %></div>
-            <div class="entry-date pb-2"><%= entry.created_at.strftime("%A, %B %d, %Y") %></div>
-            <div class="mb-2"><%= entry.content %></div>
-            <%= link_to edit_entry_path(entry), class: "link" do %>
-              <i class="fas fa-edit"></i>
-            <% end %>
-            <% if entry != @entries.last(3).first %>
-              <div class="divider mt-4"></div>
-            <% end %>
+      <% if @entries.exists? %>
+        <% @entries.last(3).reverse.each_with_index do |entry, index| %>
+          <div class="row">
+            <div class="col-sm-8 pb-4 pt-2">
+              <div class="entry-header pb-1"><%= entry.title %></div>
+              <div class="entry-date pb-2"><%= entry.created_at.strftime("%A, %B %d, %Y") %></div>
+              <div class="mb-2"><%= entry.content %></div>
+              <%= link_to edit_entry_path(entry), class: "link" do %>
+                <i class="fas fa-edit"></i>
+              <% end %>
+              <% if entry != @entries.last(3).first %>
+                <div class="divider mt-4"></div>
+              <% end %>
+            </div>
           </div>
+        <% end %>
         </div>
       <% end %>
-      </div>
     <div>
       <%= link_to new_entry_path, class: 'btn-plus ml-4' do %>
         <i class="fas fa-plus"></i>
