@@ -7,22 +7,30 @@
       <div class="flex">
         <div class="col-sm-6 pb-4">
           <h2 class="stats-header text-center">To dos</h2>
-          <div class="d-flex justify-content-center">
-            <div class="pr-3"><div class="stat-number text-center"><%= @total_completed_tasks %></div> all-time completed <%= "task".pluralize(@total_completed_tasks) %></div>
-            <div><div class="stat-number text-center"><%= @todays_number_of_remaining_tasks %></div> remaining <%= "task".pluralize(@todays_number_of_remaining_tasks) %> today</div>
-          </div>
-          <div class="stat-header text-center pt-4">Today's task completion</div>
-          <%= pie_chart @task_completion_hash, colors: ["rgba(98, 218, 160, 1)", "rgba(90, 205, 241, 1)"], height: "120px", suffix: "%", legend: "bottom" %>
+          <% if @tasks.exists? %>
+            <div class="d-flex justify-content-center">
+              <div class="pr-3"><div class="stat-number text-center"><%= @total_completed_tasks %></div> all-time completed <%= "task".pluralize(@total_completed_tasks) %></div>
+              <div><div class="stat-number text-center"><%= @todays_number_of_remaining_tasks %></div> remaining <%= "task".pluralize(@todays_number_of_remaining_tasks) %> today</div>
+            </div>
+            <div class="stat-header text-center pt-4">Today's task completion</div>
+            <%= pie_chart @task_completion_hash, colors: ["rgba(98, 218, 160, 1)", "rgba(90, 205, 241, 1)"], height: "120px", suffix: "%", legend: "bottom" %>
+          <% else %>
+            <div class="nil-placeholder text-center">Log your first task to view stats</div>
+          <% end %>
         </div>
 
         <div class="col-sm-6">
           <h2 class="stats-header text-center">Entries</h2>
-          <div class="d-flex justify-content-center">
-            <div class="pr-3"><div class="stat-number text-center"><%= @total_entries %></div> <%= "entries".pluralize(@total_entries) %></div>
-            <div><div class="stat-number text-center"><%= @average_entry_word_length %></div> average word length</div>
-          </div>
-          <div class="stat-header text-center pt-4">Days with entries</div>
-          <%= pie_chart @entry_completion_hash, colors: ["rgba(98, 218, 160, 1)", "rgba(90, 205, 241, 1)"], height: "120px", suffix: "%", legend: "bottom" %>
+          <% if @entries.exists? %>
+            <div class="d-flex justify-content-center">
+              <div class="pr-3"><div class="stat-number text-center"><%= @total_entries %></div> <%= "entries".pluralize(@total_entries) %></div>
+              <div><div class="stat-number text-center"><%= @average_entry_word_length %></div> average word length</div>
+            </div>
+            <div class="stat-header text-center pt-4">Days with entries</div>
+            <%= pie_chart @entry_completion_hash, colors: ["rgba(98, 218, 160, 1)", "rgba(90, 205, 241, 1)"], height: "120px", suffix: "%", legend: "bottom" %>
+          <% else %>
+            <div class="nil-placeholder text-center">Log your first entry to view stats</div>
+          <% end %>
         </div>
       </div>
     </div>
@@ -31,24 +39,35 @@
 
   <section class="tasks">
     <div class="card p-3 mb-4 half-width">
-      <h2 class="section-header pb-2">To dos</h2>
-
+      <h2 class="section-header">To dos</h2>
       <div class="px-3">
+
+        <div class="dropdown mb-2 clearfix">
+          <button class="dropdown-toggle btn-sort float-right" type="button" id="sort_dropdown" data-toggle="dropdown">
+            Sort by
+          </button>
+          <ul class="dropdown-menu -sort">
+            <li><%= sortable "created_at", "Newest" %></li>
+            <li><%= sortable "name", "Name" %></li>
+            <li><%= sortable "due_date", "Due date" %></li>
+          </ul>
+        </div>
+
         <% @tasks.each do |task| %>
           <div class="task-row">
             <div class="d-flex align-items-center">
-              <div class="col-sm-1 pr-4">
+              <div class="col-sm-1">
                 <% if task.status == false %>
                   <i class="far fa-circle"></i>
                 <% else %>
                   <i class="fas fa-circle"></i>
                 <% end %>
               </div>
-              <div class="col-sm-8">
+              <div class="col-sm-4">
                 <div><%= task.name %></div>
                 <div class="due-date"><%= task.due_date.strftime("%B %-d") %></div>
               </div>
-              <div class="col-sm-2">
+              <div class="col-sm-1">
                 <% if task.priority == "high" %>
                   <i class="fas fa-lightbulb -red"></i>
                 <% elsif task.priority == "medium" %>
@@ -126,9 +145,7 @@
         </div>
       <% end %>
     <div>
-      <%= link_to new_entry_path, class: 'btn-plus ml-4' do %>
-        <i class="fas fa-plus"></i>
-      <% end %>
+      <%= link_to 'Write new entry', new_entry_path, class: 'link pt-2' %>
     </div>
     </div>
   </section>
