@@ -41,3 +41,4 @@ gem 'font-awesome-sass'
 gem 'simple_form'
 gem "chartkick"
 gem 'best_in_place'
+gem "responders"
