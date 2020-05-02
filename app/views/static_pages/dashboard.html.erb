@@ -9,8 +9,8 @@
           <h2 class="stats-header text-center">To dos</h2>
           <% if @tasks.exists? %>
             <div class="d-flex justify-content-center">
-              <div class="pr-3"><div class="stat-number text-center"><%= @total_completed_tasks %></div> all-time completed <%= "task".pluralize(@total_completed_tasks) %></div>
-              <div><div class="stat-number text-center"><%= @todays_number_of_remaining_tasks %></div> remaining <%= "task".pluralize(@todays_number_of_remaining_tasks) %> today</div>
+              <div class="pr-3"><div class="stat-number text-center"><%= @total_completed_tasks %></div> All-time completed <%= "task".pluralize(@total_completed_tasks) %></div>
+              <div><div class="stat-number text-center"><%= @todays_number_of_remaining_tasks %></div> Remaining <%= "task".pluralize(@todays_number_of_remaining_tasks) %> today</div>
             </div>
             <div class="stat-header text-center pt-4">Today's task completion</div>
             <%= pie_chart @task_completion_hash, colors: ["rgba(98, 218, 160, 1)", "rgba(90, 205, 241, 1)"], height: "120px", suffix: "%", legend: "bottom" %>
@@ -23,8 +23,8 @@
           <h2 class="stats-header text-center">Entries</h2>
           <% if @entries.exists? %>
             <div class="d-flex justify-content-center">
-              <div class="pr-3"><div class="stat-number text-center"><%= @total_entries %></div> <%= "entries".pluralize(@total_entries) %></div>
-              <div><div class="stat-number text-center"><%= @average_entry_word_length %></div> average word length</div>
+              <div class="pr-3"><div class="stat-number text-center"><%= @total_entries %></div> <%= "Entries".pluralize(@total_entries) %></div>
+              <div><div class="stat-number text-center"><%= @average_entry_word_length %></div> Average word length</div>
             </div>
             <div class="stat-header text-center pt-4">Days with entries</div>
             <%= pie_chart @entry_completion_hash, colors: ["rgba(98, 218, 160, 1)", "rgba(90, 205, 241, 1)"], height: "120px", suffix: "%", legend: "bottom" %>
@@ -37,7 +37,7 @@
 
   </section>
 
-  <section class="tasks">
+  <section class="tasks" id="task-anchor">
     <div class="card p-3 mb-4 half-width">
       <h2 class="section-header">To dos</h2>
       <div class="px-3">
@@ -64,8 +64,8 @@
                 <% end %>
               </div>
               <div class="col-sm-4">
-                <div><%= task.name %></div>
-                <div class="due-date"><%= task.due_date.strftime("%B %-d") %></div>
+                <div><%= best_in_place task, :name, :as => :input %></div>
+                <div class="due-date"><%= best_in_place task, :due_date, :type => :input, :display_with => Proc.new { |t| t.strftime("%A, %B %d, %Y") }  %></div>
               </div>
               <div class="col-sm-1">
                 <% if task.priority == "high" %>
@@ -124,29 +124,30 @@
 
   <section class="entries">
     <div class="card p-3 mb-4">
-    <h2 class="section-header">Entries</h2>
-    <div class="px-3">
-      <% if @entries.exists? %>
-        <% @entries.last(3).reverse.each_with_index do |entry, index| %>
-          <div class="row">
-            <div class="col-sm-8 pb-4 pt-2">
-              <div class="entry-header pb-1"><%= entry.title %></div>
-              <div class="entry-date pb-2"><%= entry.created_at.strftime("%A, %B %d, %Y") %></div>
-              <div class="mb-2"><%= entry.content %></div>
-              <%= link_to edit_entry_path(entry), class: "link" do %>
-                <i class="fas fa-edit"></i>
-              <% end %>
-              <% if entry != @entries.last(3).first %>
-                <div class="divider mt-4"></div>
-              <% end %>
+      <h2 class="section-header">Entries</h2>
+      <div class="px-3">
+        <% if @entries.exists? %>
+          <% @entries.last(3).reverse.each_with_index do |entry, index| %>
+            <div class="row">
+              <div class="col-sm-8 pb-4 pt-2">
+                <div class="entry-header pb-1"><%= entry.title %></div>
+                <div class="entry-date pb-2"><%= entry.created_at.strftime("%A, %B %d, %Y") %></div>
+                <div class="entry-section-title">Mood</div>
+                <div class="mood-emoji"><%= entry.mood %></div>
+                <div class="entry-section-title">Daily reflections</div>
+                <div class="mb-2"><%= entry.content %></div>
+                <%= link_to edit_entry_path(entry), class: "link" do %>
+                  <i class="fas fa-edit"></i>
+                <% end %>
+                <% if entry != @entries.last(3).first %>
+                  <div class="divider mt-4"></div>
+                <% end %>
+              </div>
             </div>
-          </div>
+          <% end %>
         <% end %>
-        </div>
-      <% end %>
-    <div>
-      <%= link_to 'Write new entry', new_entry_path, class: 'link pt-2' %>
-    </div>
+        <%= link_to 'Write new entry', new_entry_path, class: 'link pt-2' %>
+      </div>
     </div>
   </section>
 

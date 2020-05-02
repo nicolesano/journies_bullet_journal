@@ -1,5 +1,6 @@
 class TasksController < ApplicationController
-  before_action :set_task, only: [:show]
+  respond_to :html, :json
+  before_action :set_task, only: [:show, :edit, :update]
 
   def show
   end
@@ -12,10 +13,18 @@ class TasksController < ApplicationController
     @task = current_user.tasks.new(task_params)
     @task.status = false
     if @task.save
-      redirect_to dashboard_path
+      redirect_to dashboard_path(anchor: "task-anchor")
     else
       render :new
     end
+  end
+
+  def edit
+  end
+
+  def update
+    @task.update_attributes(params[:task])
+    respond_with @task
   end
 
   private

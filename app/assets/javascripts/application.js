@@ -18,6 +18,7 @@
 //= require bootstrap-sprockets
 //= require chartkick
 //= require Chart.bundle
+//= require best_in_place
 //= require_tree .
 
 $(function(){
@@ -34,4 +35,8 @@ $(function(){
   };
   
   addTaskButton.addEventListener("click", displayForm);  
+});
+
+$(document).ready(function() {
+  jQuery(".best_in_place").best_in_place();
 });
