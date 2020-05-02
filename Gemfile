@@ -42,3 +42,6 @@ gem 'simple_form'
 gem "chartkick"
 gem 'best_in_place'
 gem "responders"
+gem 'dotenv-rails', groups: [:development, :test]
+gem 'cloudinary', '~> 1.12.0'
+

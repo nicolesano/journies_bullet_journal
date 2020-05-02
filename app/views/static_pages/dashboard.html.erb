@@ -134,6 +134,12 @@
                 <div class="entry-date pb-2"><%= entry.created_at.strftime("%A, %B %d, %Y") %></div>
                 <div class="entry-section-title">Mood</div>
                 <div class="mood-emoji"><%= entry.mood %></div>
+                <div class="entry-section-title">Photo memory</div>
+                <% if entry.photo.attached? %>
+                  <div class="entry-photo">
+                    <%= cl_image_tag entry.photo.key %>
+                  </div>
+                <% end %>
                 <div class="entry-section-title">Daily reflections</div>
                 <div class="mb-2"><%= entry.content %></div>
                 <%= link_to edit_entry_path(entry), class: "link" do %>

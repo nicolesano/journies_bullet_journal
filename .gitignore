@@ -30,3 +30,4 @@
 !/tmp/pids
 !/tmp/pids/.keep
 !/tmp/pids/.server.pid
+.env*
