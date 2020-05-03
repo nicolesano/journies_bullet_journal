@@ -44,4 +44,6 @@ gem 'best_in_place'
 gem "responders"
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'cloudinary', '~> 1.12.0'
+gem "actionview", ">= 5.2.4.2"
+
 

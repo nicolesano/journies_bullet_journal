@@ -6,6 +6,7 @@ class EntriesController < ApplicationController
 
   def new
     @entry = current_user.entries.new
+    @entry.gratefulthings.build
   end
 
   def create
@@ -28,7 +29,7 @@ class EntriesController < ApplicationController
   private
 
     def entry_params
-      params.require(:entry).permit(:user, :title, :mood, :photo, :content)
+      params.require(:entry).permit(:user, :title, :mood, :photo, :content, gratefulthings_attributes: [:content])
     end
 
     def set_entry
